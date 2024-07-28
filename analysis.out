@@ -1,0 +1,39 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00        5     0.00     0.00  swap(int*, int*)
+  0.00      0.00     0.00        4     0.00     0.00  partition(int*, int, int)
+  0.00      0.00     0.00        2     0.00     0.00  printArray(int*, int)
+  0.00      0.00     0.00        1     0.00     0.00  quickSort(int*, int, int)
+
+			Call graph
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00       5/5           partition(int*, int, int) [6]
+[5]      0.0    0.00    0.00       5         swap(int*, int*) [5]
+-----------------------------------------------
+                0.00    0.00       4/4           quickSort(int*, int, int) [8]
+[6]      0.0    0.00    0.00       4         partition(int*, int, int) [6]
+                0.00    0.00       5/5           swap(int*, int*) [5]
+-----------------------------------------------
+                0.00    0.00       2/2           main [4]
+[7]      0.0    0.00    0.00       2         printArray(int*, int) [7]
+-----------------------------------------------
+                                   8             quickSort(int*, int, int) [8]
+                0.00    0.00       1/1           main [4]
+[8]      0.0    0.00    0.00       1+8       quickSort(int*, int, int) [8]
+                0.00    0.00       4/4           partition(int*, int, int) [6]
+                                   8             quickSort(int*, int, int) [8]
+-----------------------------------------------
+
+Index by function name
+
+   [7] printArray(int*, int)   [6] partition(int*, int, int)
+   [5] swap(int*, int*)        [8] quickSort(int*, int, int)
